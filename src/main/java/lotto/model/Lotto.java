@@ -7,9 +7,6 @@ public class Lotto {
     private final List<Integer> numbers;
 
     public Lotto(List<Integer> number) {
-
-        AppConfig appConfig = new AppConfig();
-        appConfig.validator(number);
         this.numbers = number;
     }
 
