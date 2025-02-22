@@ -2,8 +2,9 @@ package lotto;
 
 
 import lotto.controller.LottoController;
-import lotto.service.CountLotto;
-import lotto.service.MakeRandomNumbers;
+import lotto.service.CountCorrectNumber;
+import lotto.service.LottoList;
+import lotto.util.Validator;
 import lotto.view.UserInput;
 import lotto.view.UserOutput;
 
@@ -16,10 +17,25 @@ public class AppConfig {
         return new UserOutput();
     }
 
+    public Validator validator(){
+        return new Validator();
+    }
+
+    public LottoList makeRandomLotto(){
+        return new LottoList(userInput().getNumberOfLotto());
+    }
+
+    public CountCorrectNumber chooseCorrectNumber(){
+        return new CountCorrectNumber(makeRandomLotto().getLottoContainer());
+    }
+
     public LottoController lottoController(){
         return new LottoController(
                 userInput(),
-                userOutput()
-        );
+                userOutput(),
+                validator(),
+                makeRandomLotto(),
+                chooseCorrectNumber()
+                );
     }
 }

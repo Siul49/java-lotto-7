@@ -120,7 +120,7 @@
 - Java Enum을 적용한다.
 - 도메인 로직에 단위 테스트를 구현해야 한다. 단, UI(System.out, [System.in](http://system.in/), Scanner) 로직은 제외한다.
     - 핵심 로직을 구현하는 코드와 UI를 담당하는 로직을 분리해 구현한다.
-    - 단위 테스트 작성이 익숙하지 않다면 `test/java/lotto/LottoTest`를 참고하여 학습한 후 테스트를 구현한다.
+    - 단위 테스트 작성이 익숙하지 않다면 `test/java/lottoList/LottoTest`를 참고하여 학습한 후 테스트를 구현한다.
 
 ### 구현할 기능
 - 구입 금액 입력

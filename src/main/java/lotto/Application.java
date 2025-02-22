@@ -10,6 +10,6 @@ public class Application {
         appConfig = new AppConfig();
         lottoController = appConfig.lottoController();
 
-        lottoController.buyLotto();
+        lottoController.lottoPlaying();
     }
 }
