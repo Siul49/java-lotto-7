@@ -1,12 +1,10 @@
 package lotto.util;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class validator {
+public class Validator {
     private void numberCountValidator(List<Integer> numbers) {
         if (numbers.size() != 6) {
             throw new IllegalArgumentException("[ERROR] 로또 번호는 6개여야 합니다.");
