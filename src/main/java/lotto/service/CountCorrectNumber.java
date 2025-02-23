@@ -7,6 +7,8 @@ import java.util.List;
 public class CountCorrectNumber {
     private List<Lotto> lottoList;
 
+
+
     public CountCorrectNumber(List<Lotto> lottoList) {
         this.lottoList = lottoList;
     }

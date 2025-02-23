@@ -2,40 +2,41 @@ package lotto.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import lotto.model.Lotto;
+import lotto.util.MessageConstants;
 
 import java.util.ArrayList;
 
 public class UserInput {
 
-    private String budget;
+    private int budget;
     private Lotto winningLotto;
-    private String bonusNumber;
+    private int bonusNumber;
 
 
     public UserInput() {
-        budget = "";
-        bonusNumber = "";
+        budget = 0;
+        bonusNumber = 0;
     }
 
     public int getNumberOfLotto() {
-        return Integer.parseInt(budget)/1000;
+        return budget/1000;
     }
 
     public Lotto getWinningLotto() { return winningLotto; }
-    public String getBonusNumber() { return bonusNumber; }
+    public int getBonusNumber() { return bonusNumber; }
 
-    public void setTrial() {
+    public void setBudget() {
         try {
-            System.out.println("구입 금액을 입력해 주세요.");
-            budget = Console.readLine();
+            System.out.println(MessageConstants.REQUEST_PURCHASE_AMOUNT.getMessage());
+            budget = Integer.parseInt(Console.readLine());
         } catch (Exception exception) {
-            throw new IllegalArgumentException("[Error] 입출력 과정에서 예외가 발생했습니다. ");
+            throw new IllegalArgumentException(MessageConstants.INOUTPUT_ERROR.getMessage());
         }
     }
 
     public void setWinningNumbers() {
         try {
-            System.out.println("당첨 번호를 입력해 주세요.");
+            System.out.println(MessageConstants.REQUEST_WINNING_NUMBER.getMessage());
             ArrayList<Integer> numbers = new ArrayList<>();
             String winningNums = Console.readLine();
             for (String num : winningNums.split(",")) {
@@ -44,16 +45,16 @@ public class UserInput {
 
             winningLotto = new Lotto(numbers);
          } catch (Exception exception) {
-            throw new IllegalArgumentException("[Error] 입출력 과정에서 예외가 발생했습니다. ");
+            throw new IllegalArgumentException(MessageConstants.INOUTPUT_ERROR.getMessage());
         }
     }
 
     public void setBonusNumber(){
         try {
-            System.out.println("보너스 번호를 입력해 주세요");
-            bonusNumber = Console.readLine();
+            System.out.println(MessageConstants.REQUEST_BONUS_NUMBER.getMessage());
+            bonusNumber = Integer.parseInt(Console.readLine());
         } catch (Exception exception) {
-            throw new IllegalArgumentException("[Error] 입출력 과정에서 예외가 발생했습니다. ");
+            throw new IllegalArgumentException(MessageConstants.INOUTPUT_ERROR.getMessage());
         }
     }
 }

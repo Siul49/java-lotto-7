@@ -2,6 +2,8 @@ package lotto;
 
 
 import lotto.controller.LottoController;
+import lotto.service.AdjustmentLotto;
+import lotto.service.CalculateTotalBenefit;
 import lotto.service.CountCorrectNumber;
 import lotto.service.LottoList;
 import lotto.util.Validator;
@@ -29,13 +31,22 @@ public class AppConfig {
         return new CountCorrectNumber(makeRandomLotto().getLottoContainer());
     }
 
+    public AdjustmentLotto adjustmentLotto(){
+        return new AdjustmentLotto(makeRandomLotto().getLottoContainer(), userInput().getBonusNumber());
+    }
+
+    public CalculateTotalBenefit calculateTotalBenefit(){
+        return new CalculateTotalBenefit(adjustmentLotto().getLotto(), userInput().getBonusNumber());
+    }
     public LottoController lottoController(){
         return new LottoController(
                 userInput(),
                 userOutput(),
                 validator(),
                 makeRandomLotto(),
-                chooseCorrectNumber()
+                chooseCorrectNumber(),
+                adjustmentLotto(),
+                calculateTotalBenefit()
                 );
     }
 }

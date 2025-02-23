@@ -1,6 +1,8 @@
 package lotto.controller;
 
 import lotto.model.Lotto;
+import lotto.service.AdjustmentLotto;
+import lotto.service.CalculateTotalBenefit;
 import lotto.service.CountCorrectNumber;
 import lotto.service.LottoList;
 import lotto.view.UserInput;
@@ -13,28 +15,34 @@ public class LottoController {
     Validator validator;
     LottoList lottoList;
     CountCorrectNumber countCorrectNumber;
-
+    AdjustmentLotto adjustmentLotto;
+    CalculateTotalBenefit calculateTotalBenefit;
 
     public LottoController(
             UserInput userInput,
             UserOutput userOutput,
             Validator validator,
             LottoList lottoList,
-            CountCorrectNumber countCorrectNumber) {
+            CountCorrectNumber countCorrectNumber,
+            AdjustmentLotto adjustmentLotto,
+            CalculateTotalBenefit calculateTotalBenefit) {
         this.userInput = userInput;
         this.userOutput = userOutput;
         this.validator = validator;
         this.lottoList = lottoList;
         this.countCorrectNumber = countCorrectNumber;
+        this.adjustmentLotto = adjustmentLotto;
+        this.calculateTotalBenefit = calculateTotalBenefit;
     }
 
     public void lottoPlaying(){
         buyLotto();
         executeLotto();
+        winningPriceLotto();
     }
 
     public void buyLotto(){
-        userInput.setTrial();
+        userInput.setBudget();
         lottoList = new LottoList(userInput.getNumberOfLotto());
 
         userOutput.printNumberOfLotto(userInput.getNumberOfLotto());
@@ -51,6 +59,13 @@ public class LottoController {
 
         countCorrectNumber.listCorrectNumber(lottoList.getLottoContainer(), winningLotto);
 
+    }
+
+    public void winningPriceLotto(){
+        adjustmentLotto.countCorrectNumber();
+        adjustmentLotto.printLotto();
+
+        calculateTotalBenefit.calculateTotalBenefit();
     }
 
 
