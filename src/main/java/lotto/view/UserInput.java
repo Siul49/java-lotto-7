@@ -21,9 +21,10 @@ public class UserInput {
     public int getNumberOfLotto() {
         return budget/1000;
     }
-
     public Lotto getWinningLotto() { return winningLotto; }
     public int getBonusNumber() { return bonusNumber; }
+    public int getBudget() { return budget; }
+
 
     public void setBudget() {
         try {

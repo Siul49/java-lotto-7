@@ -11,7 +11,7 @@ public class CalculateTotalBenefit {
         this.budget = budget;
     }
 
-    public double sumLotto(){
+    public void sumLotto(){
         lotto[0] *= 5000;
         lotto[1] *= 50000;
         lotto[2] *= 1500000;
@@ -20,7 +20,6 @@ public class CalculateTotalBenefit {
         for (int i = 0; i < lotto.length; i++) {
             totalBenefit += (double)lotto[i];
         }
-        return totalBenefit;
     }
 
     public void calculateTotalBenefit() {

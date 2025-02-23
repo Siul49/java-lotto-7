@@ -7,7 +7,9 @@ import java.util.List;
 public class CountCorrectNumber {
     private List<Lotto> lottoList;
 
-
+    public List<Lotto>  getLottoList(){
+        return lottoList;
+    }
 
     public CountCorrectNumber(List<Lotto> lottoList) {
         this.lottoList = lottoList;
@@ -25,12 +27,11 @@ public class CountCorrectNumber {
         }
     }
 
-    public void sameNumber(Lotto myLotto, int oneOfMyLottoNumber) {
-        for (int lotto : myLotto.getNumbers()) {
-            if (lotto == oneOfMyLottoNumber) {
-                myLotto.plusCorrectNumbers();
-                break;
-            }
+    public boolean sameNumber(Lotto myLotto, int winningLottoNumber) {
+        if (myLotto.getNumbers().contains(winningLottoNumber)) {
+            myLotto.plusCorrectNumbers();
+            return true;
         }
+        return false;
     }
 }

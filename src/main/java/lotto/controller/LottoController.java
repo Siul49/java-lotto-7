@@ -63,8 +63,9 @@ public class LottoController {
 
     public void winningPriceLotto(){
         adjustmentLotto.countCorrectNumber();
-        adjustmentLotto.printLotto();
+        userOutput.printWinningLotto(adjustmentLotto.getLotto());
 
+        calculateTotalBenefit.sumLotto();
         calculateTotalBenefit.calculateTotalBenefit();
     }
 

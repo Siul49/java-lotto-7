@@ -15,8 +15,7 @@ public class LottoList {
             List<Integer> lottoNumbers = Randoms.pickUniqueNumbersInRange(1, 45, 6);
             Validator validator = new Validator();
             validator.numberDuplicateValidator(lottoNumbers);
-            Lotto lotto = new Lotto(lottoNumbers);
-            lottoContainer.add(lotto);
+            lottoContainer.add(new Lotto(lottoNumbers) );
         }
     }
 

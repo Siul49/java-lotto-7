@@ -16,4 +16,12 @@ public class UserOutput {
            System.out.println(lotto.getNumbers());
        }
    }
+
+   public void printWinningLotto(int[] lotto){
+       System.out.println(MessageConstants.THREE_MESSAGE.getMessage() + lotto[0] + "개");
+       System.out.println(MessageConstants.FOUR_MESSAGE.getMessage() + lotto[1] + "개");
+       System.out.println(MessageConstants.FIVE_MESSAGE.getMessage() + lotto[2] + "개");
+       System.out.println(MessageConstants.FIVE_AND_BONUS_MASSAGE.getMessage() + lotto[3] + "개");
+       System.out.println(MessageConstants.SIX_MASSAGE.getMessage() + lotto[4] + "개");
+   }
 }

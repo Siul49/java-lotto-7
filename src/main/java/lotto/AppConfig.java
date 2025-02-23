@@ -27,16 +27,16 @@ public class AppConfig {
         return new LottoList(userInput().getNumberOfLotto());
     }
 
-    public CountCorrectNumber chooseCorrectNumber(){
+    public CountCorrectNumber countCorrectNumber(){
         return new CountCorrectNumber(makeRandomLotto().getLottoContainer());
     }
 
     public AdjustmentLotto adjustmentLotto(){
-        return new AdjustmentLotto(makeRandomLotto().getLottoContainer(), userInput().getBonusNumber());
+        return new AdjustmentLotto(countCorrectNumber().getLottoList(), userInput().getBonusNumber());
     }
 
     public CalculateTotalBenefit calculateTotalBenefit(){
-        return new CalculateTotalBenefit(adjustmentLotto().getLotto(), userInput().getBonusNumber());
+        return new CalculateTotalBenefit(adjustmentLotto().getLotto(), userInput().getBudget());
     }
     public LottoController lottoController(){
         return new LottoController(
@@ -44,7 +44,7 @@ public class AppConfig {
                 userOutput(),
                 validator(),
                 makeRandomLotto(),
-                chooseCorrectNumber(),
+                countCorrectNumber(),
                 adjustmentLotto(),
                 calculateTotalBenefit()
                 );
